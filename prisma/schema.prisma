@@ -59,8 +59,7 @@ enum Tag {
 }
 
 model Weather {
-  id            Int      @id @default(autoincrement())
-  dateTime      DateTime
+  id            Int    @id @default(autoincrement())
   temperature   Float
   humidity      Float
   description   String
