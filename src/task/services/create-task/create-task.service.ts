@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'shared/prisma/services/prisma.service'
-import { DecodeTokenService } from 'src/auth/services/decode-token-service/decode-token-service.service'
+import { DecodeTokenService } from 'src/auth/services/decode-token-service/decode-token.service'
 import { CreateTaskDto } from 'src/task/dto/create-task.dto'
 import { parseISO } from 'date-fns'
 
