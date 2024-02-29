@@ -1,13 +1,12 @@
 import { Body, Controller, Post } from '@nestjs/common'
-import { CreateTaskService } from '../services/create-task/create-task.service'
-import { CreateTaskDto } from '../dto/create-task.dto'
+import { CreateTaskService, ICreateTaskRequest } from '../services/create-task/create-task.service'
 
-@Controller('task')
+@Controller('tasks')
 export class TaskController {
   constructor(private readonly createTaskService: CreateTaskService) {}
 
   @Post()
-  async create(@Body() body: CreateTaskDto) {
+  async create(@Body() body: ICreateTaskRequest) {
     return await this.createTaskService.execute(body)
   }
 }

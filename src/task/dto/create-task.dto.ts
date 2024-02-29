@@ -8,7 +8,7 @@ export class CreateTaskDto {
 
   @IsNotEmpty()
   @IsDate()
-  eventDate: Date
+  eventDate: string
 
   @IsString()
   @IsNotEmpty()
@@ -20,5 +20,5 @@ export class CreateTaskDto {
 
   @IsString()
   @IsNotEmpty()
-  status: TaskStatus
+  taskStatus: TaskStatus
 }
