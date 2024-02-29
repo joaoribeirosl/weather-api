@@ -1,10 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common'
 import { CreateTaskService, ICreateTaskRequest } from '../services/create-task/create-task.service'
 import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id/get-all-tasks-by-user-id.service'
 import { DeleteTaskByIdService } from '../services/delete-task-by-id/delete-task-by-id.service'
 import { GetAllTasksService } from '../services/get-all-tasks/get-all-tasks.service'
 import { UpdateTaskDto } from '../dto/update-task.dto'
 import { UpdateTaskByIdService } from '../services/update-task-by-id/update-task-by-id.service'
+import { IOrderTasks, OrderTasksService } from '../services/order-tasks/order-tasks.service'
 
 @Controller('tasks')
 export class TaskController {
@@ -14,6 +15,7 @@ export class TaskController {
     private readonly deleteTaskByIdService: DeleteTaskByIdService,
     private readonly getAllTasksService: GetAllTasksService,
     private readonly updateTaskByIdService: UpdateTaskByIdService,
+    private readonly orderTasksService: OrderTasksService,
   ) {}
 
   @Post()
@@ -29,6 +31,11 @@ export class TaskController {
   @Get(':id')
   async getOne(@Param('id') param: string) {
     return await this.getAllTasksByUserId.execute(param)
+  }
+
+  @Get('order/by')
+  async orderTasks(@Query() params: IOrderTasks) {
+    return await this.orderTasksService.execute(params)
   }
 
   @Delete(':id')

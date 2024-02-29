@@ -11,10 +11,11 @@ import { DeleteTaskByIdService } from './services/delete-task-by-id/delete-task-
 import { TaskController } from './controller/task.controller'
 import { GetAllTasksService } from './services/get-all-tasks/get-all-tasks.service';
 import { UpdateTaskByIdService } from './services/update-task-by-id/update-task-by-id.service';
+import { OrderTasksService } from './services/order-tasks/order-tasks.service';
 
 @Module({
   imports: [PrismaModule],
   controllers: [TaskController],
-  providers: [CreateTaskService, GetAllTasksByUserIdService, DecodeTokenService, DeleteTaskByIdService, GetAllTasksService, UpdateTaskByIdService],
+  providers: [CreateTaskService, GetAllTasksByUserIdService, DecodeTokenService, DeleteTaskByIdService, GetAllTasksService, UpdateTaskByIdService, OrderTasksService],
 })
 export class TaskModule {}
