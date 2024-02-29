@@ -7,14 +7,14 @@ Este é um projeto de backend desenvolvido usando NestJS e Prisma. O objetivo de
 - Cadastro de Usuários: Os usuários podem se cadastrar no sistema.
 - Autenticação: Sistema de autenticação para proteger rotas e recursos.
 - CRUD de Tarefas: Os usuários podem criar, visualizar, atualizar e excluir suas próprias tarefas.
-- Integração de API Meteorológica: Informações meteorológicas são fornecidas para a data de vencimento das tarefas.
+- Integração de API Meteorológica: Informações meteorológicas são fornecidas na data das tarefas.
 - Filtragem e Ordenação: Funcionalidades para filtrar e ordenar tarefas com base em diferentes critérios.
 
 ## Tecnologias Utilizadas
 
 - NestJS: Framework de backend para Node.js.
 - Prisma: ORM para lidar com a camada de banco de dados.
-- PostgreSQL (ou MySQL): Banco de dados para armazenar dados do aplicativo.
+- PostgreSQL: Banco de dados para armazenar dados do aplicativo.
 - JWT (JSON Web Tokens): Para autenticação de usuários.
 - API Externa de Clima: Integração com uma API externa para obter informações meteorológicas.
 
