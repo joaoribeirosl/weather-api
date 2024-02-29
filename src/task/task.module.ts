@@ -10,10 +10,11 @@ import { DecodeTokenService } from 'src/auth/services/decode-token-service/decod
 import { DeleteTaskByIdService } from './services/delete-task-by-id/delete-task-by-id.service'
 import { TaskController } from './controller/task.controller'
 import { GetAllTasksService } from './services/get-all-tasks/get-all-tasks.service';
+import { UpdateTaskByIdService } from './services/update-task-by-id/update-task-by-id.service';
 
 @Module({
   imports: [PrismaModule],
   controllers: [TaskController],
-  providers: [CreateTaskService, GetAllTasksByUserIdService, DecodeTokenService, DeleteTaskByIdService, GetAllTasksService],
+  providers: [CreateTaskService, GetAllTasksByUserIdService, DecodeTokenService, DeleteTaskByIdService, GetAllTasksService, UpdateTaskByIdService],
 })
 export class TaskModule {}

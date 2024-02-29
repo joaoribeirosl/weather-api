@@ -31,7 +31,7 @@ export class CreateTaskService {
         eventDate: date,
         priority: payload.createdTask.priority,
         tag: payload.createdTask.tag,
-        status: payload.createdTask.taskStatus,
+        taskStatus: payload.createdTask.taskStatus,
         userId: userExist.id,
       },
     })

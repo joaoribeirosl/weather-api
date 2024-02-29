@@ -35,7 +35,7 @@ model Task {
   userId      Int
   priority    Priority   @default(LOW)
   tag         Tag        @default(PERSONAL)
-  status      TaskStatus @default(TODO)
+  taskStatus  TaskStatus @default(TODO)
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }

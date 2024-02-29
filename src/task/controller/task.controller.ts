@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { CreateTaskService, ICreateTaskRequest } from '../services/create-task/create-task.service'
 import { GetAllTasksByUserIdService } from '../services/get-all-tasks-by-user-id/get-all-tasks-by-user-id.service'
 import { DeleteTaskByIdService } from '../services/delete-task-by-id/delete-task-by-id.service'
 import { GetAllTasksService } from '../services/get-all-tasks/get-all-tasks.service'
+import { UpdateTaskDto } from '../dto/update-task.dto'
+import { UpdateTaskByIdService } from '../services/update-task-by-id/update-task-by-id.service'
 
 @Controller('tasks')
 export class TaskController {
@@ -11,6 +13,7 @@ export class TaskController {
     private readonly getAllTasksByUserId: GetAllTasksByUserIdService,
     private readonly deleteTaskByIdService: DeleteTaskByIdService,
     private readonly getAllTasksService: GetAllTasksService,
+    private readonly updateTaskByIdService: UpdateTaskByIdService,
   ) {}
 
   @Post()
@@ -31,5 +34,10 @@ export class TaskController {
   @Delete(':id')
   async delete(@Param('id') param: string) {
     return await this.deleteTaskByIdService.execute(param)
+  }
+
+  @Put()
+  async update(@Body() body: UpdateTaskDto) {
+    return await this.updateTaskByIdService.execute(body)
   }
 }
