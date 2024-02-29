@@ -28,12 +28,34 @@ enum AccessStatus {
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
+  eventDate   DateTime
   description String
-  user        User     @relation(fields: [userId], references: [id])
+  user        User       @relation(fields: [userId], references: [id])
   userId      Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  priority    Priority   @default(LOW)
+  tag         Tag        @default(PERSONAL)
+  status      TaskStatus @default(TODO)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum Tag {
+  PERSONAL
+  WORK
+  STUDY
 }
 
 model Weather {
