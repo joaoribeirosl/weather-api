@@ -9,10 +9,11 @@ import { GetAllUsersService } from './services/get-all-users/get-all-users.servi
 import { GetUserByIdService } from './services/get-user-by-id/get-user-by-id.service'
 import { PrismaModule } from 'shared/prisma/prisma.module'
 import { JwtModule } from '@nestjs/jwt'
+import { UpdateUserByIdService } from './services/update-user/update-user-by-id.service'
 
 @Module({
   controllers: [UserController],
-  providers: [CreateUserService, GetAllUsersService, GetUserByIdService],
+  providers: [CreateUserService, GetAllUsersService, GetUserByIdService, UpdateUserByIdService],
   imports: [
     PrismaModule,
     JwtModule.register({
