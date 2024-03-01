@@ -23,6 +23,7 @@ export class CreateTaskService {
 
   async execute(payload: ICreateTaskRequest): Promise<IResponse | undefined> {
     const userExist = await this.decodeTokenService.decodeToken(payload.token)
+
     const date = parseISO(payload.createdTask.eventDate)
 
     await this.prisma.task.create({

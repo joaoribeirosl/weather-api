@@ -57,13 +57,3 @@ enum Tag {
   WORK
   STUDY
 }
-
-model Weather {
-  id            Int    @id @default(autoincrement())
-  temperature   Float
-  humidity      Float
-  description   String
-  pressure      Float
-  windSpeed     Float
-  windDirection String
-}
