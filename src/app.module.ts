@@ -1,3 +1,4 @@
+import { WeatherModule } from './weather/weather.module'
 import { TaskModule } from './task/task.module'
 import { UserModule } from './user/user.module'
 import { PrismaModule } from './../shared/prisma/prisma.module'
@@ -7,7 +8,7 @@ import { AppService } from './app.service'
 import { AuthModule } from './auth/auth.module'
 
 @Module({
-  imports: [AuthModule, TaskModule, UserModule, PrismaModule],
+  imports: [WeatherModule, AuthModule, TaskModule, UserModule, PrismaModule],
   controllers: [AppController],
   providers: [AppService],
 })
