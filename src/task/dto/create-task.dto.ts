@@ -12,6 +12,10 @@ export class CreateTaskDto {
 
   @IsString()
   @IsNotEmpty()
+  city: string
+
+  @IsString()
+  @IsNotEmpty()
   priority: Priority
 
   @IsString()
