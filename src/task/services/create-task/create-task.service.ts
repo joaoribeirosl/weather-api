@@ -4,6 +4,7 @@ import { DecodeTokenService } from 'src/auth/services/decode-token-service/decod
 import { CreateTaskDto } from 'src/task/dto/create-task.dto'
 import { parseISO } from 'date-fns'
 import { GetWeatherService } from 'src/weather/services/get-weather/get-weather.service'
+import { weatherCodes } from 'src/weather/enum/weatherCodes.enum'
 
 export interface ICreateTaskRequest {
   createdTask: CreateTaskDto
@@ -28,7 +29,11 @@ export class CreateTaskService {
 
   async execute(payload: ICreateTaskRequest): Promise<IResponse | undefined> {
     const userExist = await this.decodeTokenService.decodeToken(payload.token)
-    const actualWeather = await this.getWeatherService.execute(payload.createdTask.city)
+    const actualWeather = await this.getWeatherService.execute(payload.createdTask.city) //payload.createdTask.eventDate
+
+    const weatherCodeFromApi: number = actualWeather.timelines.minutely[0].values.weatherCode
+
+    const weatherDescription = weatherCodes[weatherCodeFromApi]
 
     const date = parseISO(payload.createdTask.eventDate)
 
@@ -50,10 +55,9 @@ export class CreateTaskService {
       tag: payload.createdTask.tag,
       taskStatus: payload.createdTask.taskStatus,
       weatherInformation: {
-        weatherDescription: actualWeather.weather[0].description,
-        temperature: actualWeather.main.temp,
-        feels_like: actualWeather.main.feels_like,
-        humidity: actualWeather.main.humidity,
+        weatherDescription: weatherDescription,
+        temperature: actualWeather.timelines.minutely[0].values.temperature,
+        temperatureApparent: actualWeather.timelines.minutely[0].values.temperatureApparent,
       },
     } as IResponse
   }

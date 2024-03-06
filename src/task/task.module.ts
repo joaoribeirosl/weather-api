@@ -13,6 +13,7 @@ import { GetAllTasksService } from './services/get-all-tasks/get-all-tasks.servi
 import { UpdateTaskByIdService } from './services/update-task-by-id/update-task-by-id.service'
 import { OrderTasksService } from './services/order-tasks/order-tasks.service'
 import { GetWeatherService } from 'src/weather/services/get-weather/get-weather.service'
+import { GetUserCoordinationsService } from 'src/user/services/get-user-coordinations/get-user-coordinations.service'
 
 @Module({
   imports: [PrismaModule],
@@ -26,6 +27,7 @@ import { GetWeatherService } from 'src/weather/services/get-weather/get-weather.
     UpdateTaskByIdService,
     OrderTasksService,
     GetWeatherService,
+    GetUserCoordinationsService,
   ],
 })
 export class TaskModule {}

@@ -10,10 +10,11 @@ import { GetUserByIdService } from './services/get-user-by-id/get-user-by-id.ser
 import { PrismaModule } from 'shared/prisma/prisma.module'
 import { JwtModule } from '@nestjs/jwt'
 import { UpdateUserByIdService } from './services/update-user/update-user-by-id.service'
+import { GetUserCoordinationsService } from './services/get-user-coordinations/get-user-coordinations.service';
 
 @Module({
   controllers: [UserController],
-  providers: [CreateUserService, GetAllUsersService, GetUserByIdService, UpdateUserByIdService],
+  providers: [CreateUserService, GetAllUsersService, GetUserByIdService, UpdateUserByIdService, GetUserCoordinationsService],
   imports: [
     PrismaModule,
     JwtModule.register({
