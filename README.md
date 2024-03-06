@@ -5,7 +5,8 @@ Este é um projeto de backend desenvolvido usando NestJS e Prisma. O objetivo de
 ## Funcionalidades
 
 - CRUD de Tarefas: Os usuários podem criar, visualizar, atualizar e excluir suas próprias tarefas.
-- Integração de API Meteorológica: Informações meteorológicas são fornecidas pela OpenWeather API `https://openweathermap.org/api`.
+- Integração de API Geolocalização: A API do Google Maps fornece a localização geográfica atual do usuário `https://console.cloud.google.com/google/maps-apis`.
+- Integração de API Meteorológica: Informações meteorológicas são fornecidas pela Tomorrow.io e sua API climática `https://www.tomorrow.io`.
 - Filtragem e Ordenação: Funcionalidades para filtrar e ordenar tarefas com base em diferentes critérios.
 
 ## Tecnologias Utilizadas
@@ -14,7 +15,8 @@ Este é um projeto de backend desenvolvido usando NestJS e Prisma. O objetivo de
 - Prisma: ORM para lidar com a camada de banco de dados.
 - PostgreSQL: Banco de dados para armazenar dados do aplicativo.
 - JWT (JSON Web Tokens): Para autenticação de usuários.
-- OpenWeather API: Para obter informações meteorológicas.
+- maps.googleapis: Para localização geográfica atual do usuário.
+- Tomorrow.io Weather API: Para obter informações meteorológicas.
 
 ## Instalação
 
